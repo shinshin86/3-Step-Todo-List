@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ListItem } from 'material-ui/list'
 import Divider from 'material-ui/Divider'
 
-const Todo = ({ onClick, status, text }) => (
+const Todo = ({ onClick, status, text, ongoingDatetime, completedDatetime, workingTime }) => (
   <div>
     <ListItem
       onClick={onClick}
@@ -11,6 +11,9 @@ const Todo = ({ onClick, status, text }) => (
               textDecoration: status === 'completed' ? 'line-through' : 'none'}}
     >
       {text}
+      ONGOING : {ongoingDatetime}
+      COMPLETED : {completedDatetime}
+      WORKING TIME : {workingTime}
     </ListItem>
     <Divider />
   </div>
