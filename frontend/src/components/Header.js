@@ -1,40 +1,40 @@
-import React, { Component } from 'react';
-import AppBar from 'material-ui/AppBar';
-import LeftNav from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import AppBar from 'material-ui/AppBar'
+import LeftNav from 'material-ui/Drawer'
+import MenuItem from 'material-ui/MenuItem'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
+const LinkItem = styled(Link)`
+  text-decoration: none;
+  color: #333;
+`
 
 class Header extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       open: false
     }
   }
 
-  openNav = (state) => {
+  openNav = state => {
     this.setState({
       open: !state.open
     })
   }
-
 
   render() {
     return (
       <div>
         <LeftNav open={this.state.open}>
           <div>
-            <MenuItem>
-              <Link to='/'>
-                Home
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to='/archives'>
-                Archives
-              </Link>
-            </MenuItem>
+            <LinkItem to="/">
+              <MenuItem>Home</MenuItem>
+            </LinkItem>
+            <LinkItem to="/archives">
+              <MenuItem>Archives</MenuItem>
+            </LinkItem>
           </div>
         </LeftNav>
         <AppBar
@@ -47,4 +47,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default Header

@@ -1,5 +1,5 @@
 const todo = (state, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'ADD_TODO':
       return {
         id: action.id,

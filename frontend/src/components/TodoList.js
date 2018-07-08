@@ -6,21 +6,19 @@ import Todo from './Todo'
 
 const TodoList = ({ todos, onTodoClick }) => (
   <List>
-    {todos.map((todo) => 
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => onTodoClick(todo.id)}
-      />
-    )}
+    {todos.map(todo => (
+      <Todo key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)} />
+    ))}
   </List>
 )
 
 TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired
-  }).isRequired).isRequired
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
 }
 
 export default TodoList

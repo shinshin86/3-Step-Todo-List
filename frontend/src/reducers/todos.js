@@ -1,7 +1,7 @@
 import { getDatetime, getWorkingTime } from '../utils/datetime'
 
 const todo = (state, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'ADD_TODO':
       return {
         id: action.id,
@@ -9,24 +9,26 @@ const todo = (state, action) => {
         status: 'pending'
       }
     case 'TOGGLE_TODO':
-      if(state.id !== action.id) {
+      if (state.id !== action.id) {
         return state
       }
 
       const t = getDatetime()
 
       // status update
-      if(state.status === 'pending') {
+      if (state.status === 'pending') {
         state.status = 'ongoing'
         state.ongoingTimestamp = t.ts
         state.ongoingDatetime = t.dt
-      } else if(state.status === 'ongoing') {
+      } else if (state.status === 'ongoing') {
         state.status = 'completed'
         state.completedTimestamp = t.ts
         state.completedDatetime = t.dt
-        state.workingTime = getWorkingTime(state.ongoingTimestamp,
-                                           state.completedTimestamp)
-      } else if(state.status === 'completed') {
+        state.workingTime = getWorkingTime(
+          state.ongoingTimestamp,
+          state.completedTimestamp
+        )
+      } else if (state.status === 'completed') {
         console.log(`archive action : [ ${state.id} : ${state.text} ]`)
         return state
       } else {
@@ -42,16 +44,11 @@ const todo = (state, action) => {
 }
 
 const todos = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'ADD_TODO':
-      return [
-        ...state,
-        todo(undefined, action)
-      ]
+      return [...state, todo(undefined, action)]
     case 'TOGGLE_TODO':
-      return state.map((t) => 
-        todo(t,action)
-      )
+      return state.map(t => todo(t, action))
     default:
       return state
   }

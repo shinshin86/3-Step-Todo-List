@@ -3,27 +3,27 @@ import TodoList from '../components/TodoList'
 import { toggleTodo } from '../actions'
 
 const getVisibleTodos = (todos, filter) => {
-  switch(filter) {
+  switch (filter) {
     case 'SHOW_ALL':
       return todos
     case 'SHOW_COMPLETED':
-      return todos.filter((t) => t.status === 'completed')
+      return todos.filter(t => t.status === 'completed')
     case 'SHOW_ONGOING':
-      return todos.filter((t) => t.status === 'ongoing')
+      return todos.filter(t => t.status === 'ongoing')
     case 'SHOW_PENDING':
-      return todos.filter((t) => t.status === 'pending')
+      return todos.filter(t => t.status === 'pending')
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     todos: getVisibleTodos(state.todos, state.visibilityFilter)
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onTodoClick: (id) => {
+    onTodoClick: id => {
       dispatch(toggleTodo(id))
     }
   }
