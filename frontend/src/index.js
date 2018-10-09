@@ -8,7 +8,7 @@ import Archives from './components/Archives'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-let store = createStore(todo)
+const store = createStore(todo)
 
 render(
   <MuiThemeProvider>
