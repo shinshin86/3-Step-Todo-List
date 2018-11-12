@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ListItem } from 'material-ui/list'
-import Divider from 'material-ui/Divider'
+import ListItem from '@material-ui/core/ListItem'
+import Divider from '@material-ui/core/Divider'
 
 const Todo = ({
   onClick,

@@ -5,7 +5,7 @@ import { createStore } from 'redux'
 import todo from './reducers'
 import App from './components/App'
 import Archives from './components/Archives'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const store = createStore(todo)

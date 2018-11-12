@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { List } from 'material-ui/list'
-import Subheader from 'material-ui/Subheader'
+import List from '@material-ui/core/List'
 import Todo from './Todo'
 
 const TodoList = ({ todos, onTodoClick }) => (

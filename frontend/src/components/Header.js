@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import AppBar from 'material-ui/AppBar'
-import LeftNav from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
+import AppBar from '@material-ui/core/AppBar'
+import Drawer from '@material-ui/core/Drawer'
+import MenuItem from '@material-ui/core/MenuItem'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -27,7 +27,7 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <LeftNav open={this.state.open}>
+        <Drawer open={this.state.open}>
           <div>
             <LinkItem to="/">
               <MenuItem>Home</MenuItem>
@@ -36,7 +36,7 @@ class Header extends Component {
               <MenuItem>Archives</MenuItem>
             </LinkItem>
           </div>
-        </LeftNav>
+        </Drawer>
         <AppBar
           title="3 STEP TODO LIST"
           iconClassNameRight="muidocs-icon-navigation-expand-more"

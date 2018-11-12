@@ -1,20 +1,9 @@
 import React from 'react'
 import FilterLink from '../containers/FilterLink'
-import {
-  BottomNavigation,
-  BottomNavigationItem
-} from 'material-ui/BottomNavigation'
-import Paper from 'material-ui/Paper'
-import FontIcon from 'material-ui/FontIcon'
-import ActionWork from 'material-ui/svg-icons/action/work'
-import ActionToday from 'material-ui/svg-icons/action/today'
-import EditorModeEdit from 'material-ui/svg-icons/editor/mode-edit'
-import ActionDone from 'material-ui/svg-icons/action/done'
-
-const actionWork = <ActionWork />
-const actionToday = <ActionToday />
-const editorModeEdit = <EditorModeEdit />
-const actionDone = <ActionDone />
+import BottomNavigation from '@material-ui/core/BottomNavigation'
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
+import Paper from '@material-ui/core/Paper'
+import Icon from '@material-ui/core/Icon'
 
 let selectedIndex = 0
 const select = index => (selectedIndex = index)
@@ -23,32 +12,16 @@ const Footer = () => (
   <Paper zDepth={1}>
     <BottomNavigation selectedIndex={selectedIndex}>
       <FilterLink filter="SHOW_ALL">
-        <BottomNavigationItem
-          label="ALL"
-          icon={actionWork}
-          onClick={() => select(0)}
-        />
+        <BottomNavigationAction label="ALL" onClick={() => select(0)} />
       </FilterLink>
       <FilterLink filter="SHOW_PENDING">
-        <BottomNavigationItem
-          label="PENDING"
-          icon={actionToday}
-          onClick={() => select(1)}
-        />
+        <BottomNavigationAction label="PENDING" onClick={() => select(1)} />
       </FilterLink>
       <FilterLink filter="SHOW_ONGOING">
-        <BottomNavigationItem
-          label="ONGOING"
-          icon={editorModeEdit}
-          onClick={() => select(2)}
-        />
+        <BottomNavigationAction label="ONGOING" onClick={() => select(2)} />
       </FilterLink>
       <FilterLink filter="SHOW_COMPLETED">
-        <BottomNavigationItem
-          label="COMPLETED"
-          icon={actionDone}
-          onClick={() => select(3)}
-        />
+        <BottomNavigationAction label="COMPLETED" onClick={() => select(3)} />
       </FilterLink>
     </BottomNavigation>
   </Paper>
