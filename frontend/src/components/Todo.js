@@ -12,17 +12,16 @@ const Todo = ({
   workingTime
 }) => (
   <div>
-    <ListItem
-      onClick={onClick}
-      style={{
-        fontWeight: status === 'ongoing' ? 'bold' : 'none',
-        textDecoration: status === 'completed' ? 'line-through' : 'none'
-      }}
-    >
-      {text}
-      ONGOING : {ongoingDatetime}
-      COMPLETED : {completedDatetime}
-      WORKING TIME : {workingTime}
+    <ListItem onClick={onClick}>
+      <span
+        style={{
+          fontWeight: status === 'ongoing' ? 'bold' : 'none',
+          textDecoration: status === 'completed' ? 'line-through' : 'none'
+        }}
+      >
+        {text}
+      </span>
+      {status === 'ongoing' && '💨'} {status === 'completed' && '🎉'}
     </ListItem>
     <Divider />
   </div>
