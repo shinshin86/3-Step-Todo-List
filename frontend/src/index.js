@@ -5,13 +5,25 @@ import { createStore } from 'redux'
 import todo from './reducers'
 import App from './components/App'
 import Archives from './components/Archives'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import blue from '@material-ui/core/colors/blue';
+import orange from '@material-ui/core/colors/orange';
 
 const store = createStore(todo)
 
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+    secondary: orange,
+  },
+  typography: {
+    useNextVariants: true,
+  },
+});
+
 render(
-  <MuiThemeProvider>
+  <MuiThemeProvider theme={theme}>
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
