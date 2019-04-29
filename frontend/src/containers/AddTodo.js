@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
-import TextField from 'material-ui/TextField'
+import TextField from '@material-ui/core/TextField'
 
 const KEY_ENTER = 13
 

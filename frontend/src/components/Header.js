@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import AppBar from 'material-ui/AppBar'
-import LeftNav from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
+import AppBar from '@material-ui/core/AppBar'
+import Drawer from '@material-ui/core/Drawer'
+import MenuItem from '@material-ui/core/MenuItem'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
 
 const LinkItem = styled(Link)`
   text-decoration: none;
@@ -27,7 +29,7 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <LeftNav open={this.state.open}>
+        <Drawer open={this.state.open}>
           <div>
             <LinkItem to="/">
               <MenuItem>Home</MenuItem>
@@ -36,12 +38,14 @@ class Header extends Component {
               <MenuItem>Archives</MenuItem>
             </LinkItem>
           </div>
-        </LeftNav>
-        <AppBar
-          title="3 STEP TODO LIST"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-          onLeftIconButtonClick={() => this.openNav(this.state)}
-        />
+        </Drawer>
+        <AppBar position="static" color="default">
+          <Toolbar>
+            <Typography variant="h6" color="inherit">
+              3 STEP TODO LIST
+            </Typography>
+          </Toolbar>
+        </AppBar>
       </div>
     )
   }

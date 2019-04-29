@@ -1,52 +1,39 @@
 import React from 'react'
 import FilterLink from '../containers/FilterLink'
-import {
-  BottomNavigation,
-  BottomNavigationItem
-} from 'material-ui/BottomNavigation'
-import Paper from 'material-ui/Paper'
-import FontIcon from 'material-ui/FontIcon'
-import ActionWork from 'material-ui/svg-icons/action/work'
-import ActionToday from 'material-ui/svg-icons/action/today'
-import EditorModeEdit from 'material-ui/svg-icons/editor/mode-edit'
-import ActionDone from 'material-ui/svg-icons/action/done'
-
-const actionWork = <ActionWork />
-const actionToday = <ActionToday />
-const editorModeEdit = <EditorModeEdit />
-const actionDone = <ActionDone />
+import BottomNavigation from '@material-ui/core/BottomNavigation'
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
+import Paper from '@material-ui/core/Paper'
+import RestoreIcon from '@material-ui/icons/Restore'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import LocationOnIcon from '@material-ui/icons/LocationOn'
 
 let selectedIndex = 0
 const select = index => (selectedIndex = index)
 
 const Footer = () => (
-  <Paper zDepth={1}>
+  <Paper>
     <BottomNavigation selectedIndex={selectedIndex}>
       <FilterLink filter="SHOW_ALL">
-        <BottomNavigationItem
-          label="ALL"
-          icon={actionWork}
-          onClick={() => select(0)}
-        />
+        <BottomNavigationAction label="ALL" onClick={() => select(0)} />
       </FilterLink>
       <FilterLink filter="SHOW_PENDING">
-        <BottomNavigationItem
+        <BottomNavigationAction
           label="PENDING"
-          icon={actionToday}
+          icon={<RestoreIcon />}
           onClick={() => select(1)}
         />
       </FilterLink>
       <FilterLink filter="SHOW_ONGOING">
-        <BottomNavigationItem
+        <BottomNavigationAction
           label="ONGOING"
-          icon={editorModeEdit}
+          icon={<RestoreIcon />}
           onClick={() => select(2)}
         />
       </FilterLink>
       <FilterLink filter="SHOW_COMPLETED">
-        <BottomNavigationItem
+        <BottomNavigationAction
           label="COMPLETED"
-          icon={actionDone}
+          icon={<RestoreIcon />}
           onClick={() => select(3)}
         />
       </FilterLink>
